@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabala Heritage Home - Authentic Karnataka Homestay Experience</title>
+    <meta name="description" content="Experience authentic Karnataka heritage at Sabala Heritage Home - a peaceful homestay in Vijayapur with lush gardens, rustic architecture, and modern amenities.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(139, 69, 19, 0.7), rgba(160, 82, 45, 0.6)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="leaves" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="20" cy="20" r="2" fill="%23228B22" opacity="0.3"/><circle cx="80" cy="60" r="1.5" fill="%2332CD32" opacity="0.2"/><circle cx="50" cy="80" r="1" fill="%23006400" opacity="0.4"/></pattern></defs><rect width="100%" height="100%" fill="%238B4513"/><rect width="100%" height="100%" fill="url(%23leaves)"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            color: white;
+            z-index: 2;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #D2691E, #CD853F);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            background: linear-gradient(45deg, #CD853F, #D2691E);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(139, 69, 19, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(139, 69, 19, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #D2691E;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #D2691E;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #8B4513;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #D2691E, #CD853F);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: #8B4513;
+            font-weight: bold;
+        }
+
+        .about-image {
+            height: 400px;
+            background: linear-gradient(45deg, rgba(210, 105, 30, 0.3), rgba(205, 133, 63, 0.3)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="100%" height="100%" fill="%23DEB887"/><circle cx="100" cy="100" r="30" fill="%23228B22" opacity="0.4"/><circle cx="300" cy="150" r="25" fill="%2332CD32" opacity="0.3"/><circle cx="200" cy="300" r="35" fill="%23006400" opacity="0.5"/><rect x="150" y="250" width="100" height="80" fill="%238B4513" opacity="0.6"/></svg>');
+            background-size: cover;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #F5F5DC, #FAEBD7);
+            margin: 4rem -2rem;
+            padding: 5rem 2rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(210, 105, 30, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #8B4513;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #8B4513;
+        }
+
+        /* Location Section */
+        .location-content {
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .location-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .location-item {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(205, 133, 63, 0.1));
+            border-radius: 15px;
+            border-left: 5px solid #D2691E;
+        }
+
+        .location-item h4 {
+            color: #8B4513;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Booking Section */
+        .booking {
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            color: white;
+            text-align: center;
+            margin: 4rem -2rem;
+            padding: 5rem 2rem;
+        }
+
+        .booking .section-title {
+            color: white;
+        }
+
+        .booking .section-title::after {
+            background: linear-gradient(45deg, #D2691E, #F4A460);
+        }
+
+        .booking-content {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #D2691E;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Sabala Heritage Home</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Amenities</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Sabala Heritage Home</h1>
+            <p class="subtitle">Experience Authentic Karnataka Heritage</p>
+            <a href="#booking" class="cta-button">Book Your Stay</a>
+        </div>
+    </section>
+
+    <section id="about" class="scroll-animate">
+        <h2 class="section-title">Discover Your Heritage Haven</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Step into a world where <span class="highlight">authentic Karnataka heritage</span> meets modern comfort. Nestled in the historic city of Vijayapur, Sabala Heritage Home offers you an intimate glimpse into North Karnataka's rich cultural tapestry.</p>
+                
+                <p>Our homestay is more than just accommodation – it's a <span class="highlight">living heritage experience</span>. Set amidst lush gardens dotted with swaying coconut trees, our rustic stone architecture tells stories of Karnataka's glorious past while providing all the modern amenities you need.</p>
+                
+                <p>Escape the city's chaos and immerse yourself in the tranquil beauty of our <span class="highlight">two-acre sanctuary</span>, where every corner whispers tales of tradition and every meal celebrates authentic North Karnataka flavors.</p>
+            </div>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title">Why Choose Sabala Heritage Home</h2>
+        <div class="features-grid">
+            <div class="feature-card scroll-animate">
+                <div class="feature-icon">🌿</div>
+                <h3>Lush Gardens</h3>
+                <p>Wander through our beautiful gardens filled with coconut trees, local flora, and peaceful walking paths that reconnect you with nature.</p>
+            </div>
+            <div class="feature-card scroll-animate">
+                <div class="feature-icon">🏛️</div>
+                <h3>Rustic Architecture</h3>
+                <p>Experience authentic Karnataka architecture with our stone-built structures that reflect the region's rich architectural heritage.</p>
+            </div>
+            <div class="feature-card scroll-animate">
+                <div class="feature-icon">📶</div>
+                <h3>Modern Amenities</h3>
+                <p>Enjoy complimentary WiFi, comfortable accommodations, and all modern conveniences seamlessly integrated into our heritage setting.</p>
+            </div>
+            <div class="feature-card scroll-animate">
+                <div class="feature-icon">🍽️</div>
+                <h3>Authentic Cuisine</h3>
+                <p>Savor traditional North Karnataka dishes prepared with local ingredients and time-honored recipes, available on request.</p>
+            </div>
+            <div class="feature-card scroll-animate">
+                <div class="feature-icon">🌅</div>
+                <h3>Peaceful Retreat</h3>
+                <p>Escape city noise in our serene 2-acre property while staying within minutes of Vijayapur's major attractions.</p>
+            </div>
+            <div class="feature-card scroll-animate">
+                <div class="feature-icon">🎯</div>
+                <h3>Prime Location</h3>
+                <p>Perfectly positioned for exploring historic sites like Gol Gumbaz while offering a tranquil base for your Karnataka adventure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="scroll-animate">
+        <h2 class="section-title">Perfectly Located in Vijayapur</h2>
+        <div class="location-content">
+            <p>Discover the best of both worlds at Sabala Heritage Home. Our strategic location in Vijayapur, Karnataka, offers you the perfect balance of peaceful retreat and cultural exploration.</p>
+        </div>
+        <div class="location-highlights">
+            <div class="location-item scroll-animate">
+                <h4>🏛️ Historic Attractions</h4>
+                <p>Minutes away from the magnificent Gol Gumbaz and other architectural marvels that showcase the Deccan Sultanate's grandeur.</p>
+            </div>
+            <div class="location-item scroll-animate">
+                <h4>🌾 Rural Tranquility</h4>
+                <p>Situated on a spacious 2-acre property away from urban noise, offering you complete peace and connection with nature.</p>
+            </div>
+            <div class="location-item scroll-animate">
+                <h4>🚗 Easy Accessibility</h4>
+                <p>Conveniently located with easy access to transportation while maintaining the charm of countryside living.</p>
+            </div>
+            <div class="location-item scroll-animate">
+                <h4>🎭 Cultural Immersion</h4>
+                <p>Experience authentic North Karnataka culture, traditions, and hospitality in the heart of this historic region.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking">
+        <h2 class="section-title">Book Your Heritage Experience</h2>
+        <div class="booking-content">
+            <p>Ready to immerse yourself in authentic Karnataka heritage? Book your stay at Sabala Heritage Home and create memories that will last a lifetime.</p>
+            <p>Experience the perfect blend of tradition, comfort, and hospitality in the heart of historic Vijayapur.</p>
+        </div>
+        <a href="https://www.booking.com" target="_blank" class="cta-button">Book on Booking.com</a>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Sabala Heritage Home</h3>
+            <p>Vijayapur, Karnataka, India</p>
+            <p>Experience Authentic Karnataka Heritage</p>
+            <p style="margin-top: 2rem; opacity: 0.7;">© 2025 Sabala Heritage Home. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-animate').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
