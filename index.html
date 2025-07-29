@@ -3,556 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sabala Heritage Home - Authentic Karnataka Homestay Experience</title>
-    <meta name="description" content="Experience authentic Karnataka heritage at Sabala Heritage Home - a peaceful homestay in Vijayapur with lush gardens, rustic architecture, and modern amenities.">
+    <title>Sabala Heritage Home - A Serene Getaway in Vijayapur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Custom styles for the website */
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #2c2c2c;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
         }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(139, 69, 19, 0.7), rgba(160, 82, 45, 0.6)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="leaves" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="20" cy="20" r="2" fill="%23228B22" opacity="0.3"/><circle cx="80" cy="60" r="1.5" fill="%2332CD32" opacity="0.2"/><circle cx="50" cy="80" r="1" fill="%23006400" opacity="0.4"/></pattern></defs><rect width="100%" height="100%" fill="%238B4513"/><rect width="100%" height="100%" fill="url(%23leaves)"/></svg>');
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('http://googleusercontent.com/file_content/2');
             background-size: cover;
             background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
         }
-
-        .hero-content {
-            color: white;
-            z-index: 2;
-            animation: fadeInUp 1.5s ease-out;
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
         }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-            font-weight: 300;
-            letter-spacing: 2px;
+        /* Custom Swiper styles */
+        .swiper-button-next, .swiper-button-prev {
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            transition: background-color 0.3s ease;
         }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            font-style: italic;
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: rgba(0, 0, 0, 0.5);
         }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(45deg, #D2691E, #CD853F);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 1.25rem;
+            font-weight: 700;
         }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            background: linear-gradient(45deg, #CD853F, #D2691E);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(139, 69, 19, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
-
-        nav.scrolled {
-            background: rgba(139, 69, 19, 0.98);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: white;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: #D2691E;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #D2691E;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            color: #8B4513;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(45deg, #D2691E, #CD853F);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-text {
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .highlight {
-            color: #8B4513;
-            font-weight: bold;
-        }
-
-        .about-image {
-            height: 400px;
-            background: linear-gradient(45deg, rgba(210, 105, 30, 0.3), rgba(205, 133, 63, 0.3)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="100%" height="100%" fill="%23DEB887"/><circle cx="100" cy="100" r="30" fill="%23228B22" opacity="0.4"/><circle cx="300" cy="150" r="25" fill="%2332CD32" opacity="0.3"/><circle cx="200" cy="300" r="35" fill="%23006400" opacity="0.5"/><rect x="150" y="250" width="100" height="80" fill="%238B4513" opacity="0.6"/></svg>');
-            background-size: cover;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Features Section */
-        .features {
-            background: linear-gradient(135deg, #F5F5DC, #FAEBD7);
-            margin: 4rem -2rem;
-            padding: 5rem 2rem;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(210, 105, 30, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .feature-card:hover::before {
-            left: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: #8B4513;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #8B4513;
-        }
-
-        /* Location Section */
-        .location-content {
-            text-align: center;
-            font-size: 1.2rem;
-            line-height: 1.8;
-        }
-
-        .location-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .location-item {
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(205, 133, 63, 0.1));
-            border-radius: 15px;
-            border-left: 5px solid #D2691E;
-        }
-
-        .location-item h4 {
-            color: #8B4513;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        /* Booking Section */
-        .booking {
-            background: linear-gradient(135deg, #8B4513, #A0522D);
-            color: white;
-            text-align: center;
-            margin: 4rem -2rem;
-            padding: 5rem 2rem;
-        }
-
-        .booking .section-title {
-            color: white;
-        }
-
-        .booking .section-title::after {
-            background: linear-gradient(45deg, #D2691E, #F4A460);
-        }
-
-        .booking-content {
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        footer {
-            background: #2c2c2c;
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #D2691E;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            section {
-                padding: 3rem 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        /* Scroll animations */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .scroll-animate.animate {
-            opacity: 1;
-            transform: translateY(0);
+        .swiper-pagination-bullet-active {
+            background: #166534; /* green-800 */
         }
     </style>
 </head>
-<body>
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Sabala Heritage Home</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Amenities</a></li>
-                <li><a href="#location">Location</a></li>
-                <li><a href="#booking">Book Now</a></li>
-            </ul>
-        </div>
-    </nav>
+<body class="bg-gray-50 text-gray-800">
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Sabala Heritage Home</h1>
-            <p class="subtitle">Experience Authentic Karnataka Heritage</p>
-            <a href="#booking" class="cta-button">Book Your Stay</a>
-        </div>
-    </section>
-
-    <section id="about" class="scroll-animate">
-        <h2 class="section-title">Discover Your Heritage Haven</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>Step into a world where <span class="highlight">authentic Karnataka heritage</span> meets modern comfort. Nestled in the historic city of Vijayapur, Sabala Heritage Home offers you an intimate glimpse into North Karnataka's rich cultural tapestry.</p>
-                
-                <p>Our homestay is more than just accommodation – it's a <span class="highlight">living heritage experience</span>. Set amidst lush gardens dotted with swaying coconut trees, our rustic stone architecture tells stories of Karnataka's glorious past while providing all the modern amenities you need.</p>
-                
-                <p>Escape the city's chaos and immerse yourself in the tranquil beauty of our <span class="highlight">two-acre sanctuary</span>, where every corner whispers tales of tradition and every meal celebrates authentic North Karnataka flavors.</p>
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-playfair text-2xl font-bold text-green-800">Sabala Heritage Home</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-green-700 transition duration-300">About</a>
+                <a href="#gallery" class="text-gray-600 hover:text-green-700 transition duration-300">Gallery</a>
+                <a href="#amenities" class="text-gray-600 hover:text-green-700 transition duration-300">Amenities</a>
+                <a href="#location" class="text-gray-600 hover:text-green-700 transition duration-300">Location</a>
             </div>
-            <div class="about-image"></div>
+            <a href="https://www.booking.com/" target="_blank" class="bg-green-700 text-white px-6 py-2 rounded-full hover:bg-green-800 transition duration-300 shadow-lg">Book Now</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-white">
+        <div class="text-center px-4">
+            <h1 class="font-playfair text-5xl md:text-7xl font-bold mb-4">Experience Tranquility</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto">Discover a rustic paradise nestled in two acres of lush greenery, away from the city's hustle.</p>
         </div>
     </section>
 
-    <section id="features" class="features">
-        <h2 class="section-title">Why Choose Sabala Heritage Home</h2>
-        <div class="features-grid">
-            <div class="feature-card scroll-animate">
-                <div class="feature-icon">🌿</div>
-                <h3>Lush Gardens</h3>
-                <p>Wander through our beautiful gardens filled with coconut trees, local flora, and peaceful walking paths that reconnect you with nature.</p>
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl font-bold text-green-800">Welcome to Sabala</h2>
+                <p class="text-gray-600 mt-2">Your home away from home in the heart of Karnataka's heritage.</p>
             </div>
-            <div class="feature-card scroll-animate">
-                <div class="feature-icon">🏛️</div>
-                <h3>Rustic Architecture</h3>
-                <p>Experience authentic Karnataka architecture with our stone-built structures that reflect the region's rich architectural heritage.</p>
-            </div>
-            <div class="feature-card scroll-animate">
-                <div class="feature-icon">📶</div>
-                <h3>Modern Amenities</h3>
-                <p>Enjoy complimentary WiFi, comfortable accommodations, and all modern conveniences seamlessly integrated into our heritage setting.</p>
-            </div>
-            <div class="feature-card scroll-animate">
-                <div class="feature-icon">🍽️</div>
-                <h3>Authentic Cuisine</h3>
-                <p>Savor traditional North Karnataka dishes prepared with local ingredients and time-honored recipes, available on request.</p>
-            </div>
-            <div class="feature-card scroll-animate">
-                <div class="feature-icon">🌅</div>
-                <h3>Peaceful Retreat</h3>
-                <p>Escape city noise in our serene 2-acre property while staying within minutes of Vijayapur's major attractions.</p>
-            </div>
-            <div class="feature-card scroll-animate">
-                <div class="feature-icon">🎯</div>
-                <h3>Prime Location</h3>
-                <p>Perfectly positioned for exploring historic sites like Gol Gumbaz while offering a tranquil base for your Karnataka adventure.</p>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="http://googleusercontent.com/file_content/0" alt="Lush gardens at Sabala Heritage Home" class="rounded-lg shadow-2xl w-full h-auto">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="font-playfair text-3xl font-semibold mb-4 text-gray-700">A Blend of Rustic Charm & Modern Comfort</h3>
+                    <p class="mb-4 text-lg">Sabala Heritage Home is a unique homestay featuring stunning rustic stony architecture, surrounded by lush gardens and coconut trees. Spread across a two-acre property, we offer a peaceful retreat from the noise of the city.</p>
+                    <p class="text-lg">While you immerse yourself in nature, we ensure you stay connected with modern amenities like high-speed WiFi. It's the perfect escape for those who appreciate authenticity without compromising on comfort.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="location" class="scroll-animate">
-        <h2 class="section-title">Perfectly Located in Vijayapur</h2>
-        <div class="location-content">
-            <p>Discover the best of both worlds at Sabala Heritage Home. Our strategic location in Vijayapur, Karnataka, offers you the perfect balance of peaceful retreat and cultural exploration.</p>
-        </div>
-        <div class="location-highlights">
-            <div class="location-item scroll-animate">
-                <h4>🏛️ Historic Attractions</h4>
-                <p>Minutes away from the magnificent Gol Gumbaz and other architectural marvels that showcase the Deccan Sultanate's grandeur.</p>
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-green-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl font-bold text-green-800">A Glimpse of Sabala</h2>
+                <p class="text-gray-600 mt-2">Explore the beauty of our property.</p>
             </div>
-            <div class="location-item scroll-animate">
-                <h4>🌾 Rural Tranquility</h4>
-                <p>Situated on a spacious 2-acre property away from urban noise, offering you complete peace and connection with nature.</p>
-            </div>
-            <div class="location-item scroll-animate">
-                <h4>🚗 Easy Accessibility</h4>
-                <p>Conveniently located with easy access to transportation while maintaining the charm of countryside living.</p>
-            </div>
-            <div class="location-item scroll-animate">
-                <h4>🎭 Cultural Immersion</h4>
-                <p>Experience authentic North Karnataka culture, traditions, and hospitality in the heart of this historic region.</p>
+            <!-- Swiper Carousel -->
+            <div class="swiper relative rounded-lg shadow-xl">
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide"><img src="http://googleusercontent.com/file_content/1" alt="Reception and Parking" class="w-full h-96 object-cover"></div>
+                    <div class="swiper-slide"><img src="http://googleusercontent.com/file_content/3" alt="Comfortable Twin Bedroom" class="w-full h-96 object-cover"></div>
+                    <div class="swiper-slide"><img src="http://googleusercontent.com/file_content/5" alt="Clean and modern bedroom" class="w-full h-96 object-cover"></div>
+                    <div class="swiper-slide"><img src="http://googleusercontent.com/file_content/6" alt="Spacious bedroom with red accent wall" class="w-full h-96 object-cover"></div>
+                    <div class="swiper-slide"><img src="http://googleusercontent.com/file_content/7" alt="Another view of the red accent wall bedroom" class="w-full h-96 object-cover"></div>
+                    <div class="swiper-slide"><img src="http://googleusercontent.com/file_content/4" alt="Modern Bathroom" class="w-full h-96 object-cover"></div>
+                    <div class="swiper-slide"><img src="http://googleusercontent.com/file_content/9" alt="Cozy room corner with TV" class="w-full h-96 object-cover"></div>
+                    <div class="swiper-slide"><img src="http://googleusercontent.com/file_content/8" alt="Another view of a twin bedroom" class="w-full h-96 object-cover"></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
     </section>
 
-    <section id="booking" class="booking">
-        <h2 class="section-title">Book Your Heritage Experience</h2>
-        <div class="booking-content">
-            <p>Ready to immerse yourself in authentic Karnataka heritage? Book your stay at Sabala Heritage Home and create memories that will last a lifetime.</p>
-            <p>Experience the perfect blend of tradition, comfort, and hospitality in the heart of historic Vijayapur.</p>
+    <!-- Amenities & Food Section -->
+    <section id="amenities" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl font-bold text-green-800">Comforts & Cuisine</h2>
+                <p class="text-gray-600 mt-2">Everything you need for a memorable stay.</p>
+            </div>
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="font-playfair text-2xl font-semibold mb-4 text-gray-700">Modern Amenities</h3>
+                    <ul class="space-y-3 text-lg">
+                        <li class="flex items-center"><svg class="w-6 h-6 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Free High-Speed WiFi</li>
+                        <li class="flex items-center"><svg class="w-6 h-6 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>24/7 Reception</li>
+                        <li class="flex items-center"><svg class="w-6 h-6 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>Ample Parking Space</li>
+                         <li class="flex items-center"><svg class="w-6 h-6 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>Spacious & Clean Rooms</li>
+                    </ul>
+                </div>
+                <div class="md:w-1/2 bg-white p-8 rounded-lg shadow-lg">
+                    <h3 class="font-playfair text-2xl font-semibold mb-4 text-gray-700">Authentic Cuisine</h3>
+                    <p class="text-lg">Savor the true taste of the region. We offer delicious, home-cooked, authentic North Karnataka food, prepared with fresh, local ingredients. Please let us know in advance to enjoy this culinary experience.</p>
+                </div>
+            </div>
         </div>
-        <a href="https://www.booking.com" target="_blank" class="cta-button">Book on Booking.com</a>
     </section>
 
-    <footer>
-        <div class="footer-content">
-            <h3>Sabala Heritage Home</h3>
-            <p>Vijayapur, Karnataka, India</p>
-            <p>Experience Authentic Karnataka Heritage</p>
-            <p style="margin-top: 2rem; opacity: 0.7;">© 2025 Sabala Heritage Home. All rights reserved.</p>
+    <!-- Location Section -->
+    <section id="location" class="py-20 bg-green-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-playfair text-4xl font-bold text-green-800">Our Location</h2>
+                <p class="text-gray-600 mt-2">A peaceful oasis, just minutes from history.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                 <div class="md:w-1/2">
+                    <h3 class="font-playfair text-3xl font-semibold mb-4 text-gray-700">Conveniently Located</h3>
+                    <p class="mb-4 text-lg">Sabala Heritage Home is located in Vijayapur, Karnataka. While we offer a tranquil escape, we are just a few minutes away from the city's most popular tourist attractions.</p>
+                    <p class="text-lg font-semibold">Visit the magnificent <span class="text-green-700">Gol Gumbaz</span> and other historical sites with ease, and return to the peace and quiet of your heritage retreat.</p>
+                </div>
+                <div class="md:w-1/2 h-80 rounded-lg shadow-2xl overflow-hidden">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.721479844336!2d75.73540861530907!3d16.82669118849695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc655705953f7a5%3A0x8e5e832b355a335a!2sGol%20Gumbaz!5e0!3m2!1sen!2sin!4v1678886565000" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Booking CTA -->
+    <section class="py-20 bg-green-700 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="font-playfair text-4xl font-bold">Ready for Your Escape?</h2>
+            <p class="mt-4 text-lg max-w-2xl mx-auto">We are excited to host you. Click the button below to check availability and make a reservation through our trusted partner.</p>
+            <a href="https://www.booking.com/" target="_blank" class="mt-8 inline-block bg-white text-green-700 font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition duration-300 text-xl shadow-xl">Book on Booking.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-playfair text-2xl font-bold">Sabala Heritage Home</p>
+            <p class="mt-2">Vijayapur, Karnataka, India</p>
+            <p class="mt-4 text-gray-400">&copy; 2024 Sabala Heritage Home. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-animate').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add some interactive hover effects
-        document.querySelectorAll('.feature-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
+      const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        slidesPerView: 1,
+        spaceBetween: 20,
+        // Responsive breakpoints
+        breakpoints: {
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          // when window width is >= 1024px
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          }
+        },
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
     </script>
+
 </body>
 </html>
